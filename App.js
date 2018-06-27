@@ -17,11 +17,7 @@ export default class App extends React.Component {
   componentDidMount() {
     return fetch("https://diggity-backend.herokuapp.com/profiles")
       .then(response => response.json())
-      .then(response =>
-        this.setState({ profiles: response }, () => {
-          console.log(this.state.profiles)
-        })
-      )
+      .then(response => this.setState({ profiles: response }))
       .catch(function(error) {
         console.log("There has been a problem with your fetch operation: " + error.message)
         throw error
@@ -41,6 +37,8 @@ export default class App extends React.Component {
                 location={profile.locations}
                 image={profile.image}
                 key={index}
+                index={index}
+                profilesLength={this.state.profiles.length}
               />
             )
           })}
@@ -58,5 +56,8 @@ const styles = StyleSheet.create({
     margin: 0,
     top: 0,
     bottom: 0
+  },
+  bottomBorder: {
+    marginBottom: 40
   }
 })

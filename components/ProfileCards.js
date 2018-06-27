@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Image } from "react-native"
+import { Image, StyleSheet } from "react-native"
 import {
   Container,
   Header,
@@ -19,13 +19,16 @@ export default class ProfileCards extends Component {
   constructor(props) {
     super(props)
   }
-  componentDidMount() {
-    console.log(this.props.image)
-  }
 
   render() {
     return (
-      <Content style={{ marginTop: 0, marginBottom: 0, padding: 0 }}>
+      <Content
+        style={
+          this.props.index === this.props.profilesLength - 1
+            ? { marginBottom: 50 }
+            : { marginTop: 0, marginBottom: 10, padding: 0 }
+        }
+      >
         <Card style={{ marginTop: 0, marginBottom: 0, padding: 0 }}>
           <CardItem>
             <Left>
@@ -41,14 +44,14 @@ export default class ProfileCards extends Component {
           <CardItem>
             <Left>
               <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>12 Likes</Text>
+                <Icon active name="heart" />
+                <Text style={{ fontSize: 18 }}>Add Friend</Text>
               </Button>
             </Left>
             <Body>
-              <Button transparent>
+              <Button transparent style={{ paddingLeft: 15 }}>
                 <Icon active name="chatbubbles" />
-                <Text>Let's Play!</Text>
+                <Text style={{ fontSize: 18, paddingRight: 0 }}>Let's Play!</Text>
               </Button>
             </Body>
             {/* <Right>
