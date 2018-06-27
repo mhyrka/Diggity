@@ -14,7 +14,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   title: {
     paddingTop: 50,
-    backgroundColor: '#06BEE1',
+    backgroundColor: '#57aaff',
     fontSize: 30,
     height: 125,
     alignSelf: 'stretch',
