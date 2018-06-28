@@ -1,15 +1,14 @@
 import React, { Component } from "react"
 import { Alert, AppRegistry, Platform, Text, StyleSheet, View } from "react-native"
 import { Container, Header, Content, Footer, FooterTab, Button, Icon } from "native-base"
+import { Actions } from "react-native-router-flux"
+
 export default class FooterNav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      activeButton: "home"
-    }
+  state = {
+    activeButton: "home"
   }
 
-  handleButtonNavigation = buttonType => {
+  toggleActiveButton = buttonType => {
     this.setState({ activeButton: buttonType }, () => {
       console.log(this.state.activeButton)
     })
@@ -20,18 +19,18 @@ export default class FooterNav extends Component {
       <Container style={styles.bottomView}>
         <Footer>
           <FooterTab>
-            <Button active={this.state.activeButton === "home"} onPress={() => this.handleButtonNavigation("home")}>
+            <Button active={this.state.activeButton === "home"} onPress={() => this.toggleActiveButton("home")}>
               <Icon name="home" />
             </Button>
-            <Button active={this.state.activeButton === "chat"} onPress={() => this.handleButtonNavigation("chat")}>
+            <Button active={this.state.activeButton === "chat"} onPress={() => this.toggleActiveButton("chat")}>
               <Icon name="ios-chatboxes" />
             </Button>
-            <Button active={this.state.activeButton === "map"} onPress={() => this.handleButtonNavigation("map")}>
+            <Button active={this.state.activeButton === "map"} onPress={() => this.toggleActiveButton("map")}>
               <Icon active name="md-globe" />
             </Button>
             <Button
               active={this.state.activeButton === "md-people"}
-              onPress={() => this.handleButtonNavigation("md-people")}
+              onPress={() => this.toggleActiveButton("md-people")}
             >
               <Icon name="md-people" />
             </Button>
