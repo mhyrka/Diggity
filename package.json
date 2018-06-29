@@ -25,7 +25,10 @@
     "react-native": "~0.55.2",
     "react-native-cli": "^2.0.1",
     "react-native-router-flux": "^4.0.0-beta.31",
-    "react-native-vector-icons": "^4.6.0"
+    "react-native-training-chat-server": "^2.0.0",
+    "react-native-vector-icons": "^4.6.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1"
   },
   "rnpm": {
     "assets": [

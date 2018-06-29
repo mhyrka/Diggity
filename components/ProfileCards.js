@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, Content } from "react-native"
 import { Actions } from "react-native-router-flux"
 import Profile from "./Profile"
-import Header from "./Header"
+import HeaderBar from "./HeaderBar"
 import FooterNav from "./FooterNav"
 
 export default class ProfileCards extends Component {
@@ -24,7 +24,7 @@ export default class ProfileCards extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+        <HeaderBar />
 
         <ScrollView style={{ marginTop: 0, marginBottom: 0, padding: 0 }}>
           {this.state.profiles.map((profile, index) => {
