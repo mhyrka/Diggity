@@ -1,13 +1,14 @@
 import React from "react"
-import { View, Text, StyleSheet, StatusBar, Button } from "react-native"
-import Icon from "react-native-vector-icons"
+import { View, Text, StyleSheet, StatusBar } from "react-native"
+import { Icon, Button } from "native-base"
+import { Actions } from "react-native-router-flux"
 
 export default class Header extends React.Component {
   render() {
     return (
       <View style={styles.header}>
-        <Button title="" style={styles.button}>
-          <Icon name="ios-arrow-back" />
+        <Button title="" style={styles.button} onPress={Actions.ProfileCards}>
+          <Icon name="ios-arrow-back" size="large" style={styles.backIcon} />
         </Button>
         <StatusBar backgroundColor="lightseagreen" barStyle="light-content" />
         <Text style={styles.title}>{this.props.title}</Text>
@@ -21,16 +22,33 @@ const styles = StyleSheet.create({
     height: 80,
     backgroundColor: "#57aaff",
     alignItems: "center",
-    // justifyContent: "flex-end",
+    verticalAlign: "center",
+    justifyContent: "center",
     padding: 10,
     flexDirection: "row"
   },
   title: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 24
+    fontSize: 24,
+    alignSelf: "center"
   },
   button: {
-    position: "absolute"
+    width: 50,
+    height: 50,
+    position: "absolute",
+    left: 0,
+
+    top: 15,
+    bottom: 15,
+    backgroundColor: "transparent",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    verticalAlign: "center"
+  },
+  backIcon: {
+    color: "black",
+    fontSize: 34
   }
 })

@@ -18,7 +18,7 @@ const NAME = "Matt H"
 const CHANNEL = "9018717640"
 const AVATAR = ""
 
-export default class App extends React.Component {
+export default class SendMessage extends React.Component {
   state = {
     typing: "",
     messages: []

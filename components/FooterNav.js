@@ -5,27 +5,27 @@ import { Actions } from "react-native-router-flux"
 
 export default class FooterNav extends Component {
   state = {
-    activeButton: "home"
+    // activeButton: "home"
   }
 
   toggleActiveButton = buttonType => {
-    this.setState({ activeButton: buttonType }, () => {
-      console.log(this.state.activeButton)
-    })
+    this.setState({ activeButton: buttonType })
+    console.log("toggleActiveButton")
   }
 
   render() {
+    const MapView = MapView
     return (
       <Container style={styles.bottomView}>
         <Footer>
           <FooterTab>
-            <Button active={this.state.activeButton === "home"} onPress={() => this.toggleActiveButton("home")}>
+            <Button active={this.props.activeButton === "home"} onPress={Actions.ProfileCards}>
               <Icon name="home" />
             </Button>
             <Button active={this.state.activeButton === "chat"} onPress={() => this.toggleActiveButton("chat")}>
               <Icon name="ios-chatboxes" />
             </Button>
-            <Button active={this.state.activeButton === "map"} onPress={() => this.toggleActiveButton("map")}>
+            <Button active={this.props.activeButton === "map"} onPress={Actions.MapView}>
               <Icon active name="md-globe" />
             </Button>
             <Button

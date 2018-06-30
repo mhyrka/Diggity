@@ -8,7 +8,8 @@ import FooterNav from "./FooterNav"
 export default class ProfileCards extends Component {
   state = {
     isLoaded: false,
-    profiles: []
+    profiles: [],
+    activeButton: "home"
   }
 
   componentDidMount() {
@@ -41,7 +42,7 @@ export default class ProfileCards extends Component {
             )
           })}
         </ScrollView>
-        <FooterNav />
+        <FooterNav activeButton={this.state.activeButton} />
       </View>
     )
   }
