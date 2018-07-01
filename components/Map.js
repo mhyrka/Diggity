@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   pugFace: {
     height: 25,
-    width: 25,
-    borderRadius: 25 / 2
+    width: 25
+    // borderRadius: 25 / 2
   }
 })
