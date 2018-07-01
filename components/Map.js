@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, Content } from "react-native"
+import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, Content, Image } from "react-native"
 import FooterNav from "./FooterNav"
 import MapView from "react-native-maps"
 
@@ -71,7 +71,9 @@ export default class Map extends Component {
                     latitude: profile.location.coords.latitude,
                     longitude: profile.location.coords.longitude
                   }}
-                />
+                >
+                  <Image source={require("../assets/pugimage.png")} style={styles.pugFace} />
+                </MapView.Marker>
               )
             })}
           </MapView>
@@ -110,5 +112,10 @@ const styles = StyleSheet.create({
     borderColor: "white",
     overflow: "hidden",
     backgroundColor: "#007AFF"
+  },
+  pugFace: {
+    height: 25,
+    width: 25,
+    borderRadius: 25 / 2
   }
 })

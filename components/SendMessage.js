@@ -15,7 +15,7 @@ import { send, subscribe } from "react-native-training-chat-server"
 import MessageHeader from "./MessageHeader"
 
 const NAME = "Matt H"
-const CHANNEL = "9018717640"
+const CHANNEL = "9018717641"
 const AVATAR = ""
 
 export default class SendMessage extends React.Component {
@@ -71,7 +71,7 @@ export default class SendMessage extends React.Component {
               value={this.state.typing}
               style={styles.input}
               underlineColorAndroid="transparent"
-              placeholder="Type something nice"
+              placeholder="Let's Play!"
               onChangeText={text => this.setState({ typing: text })}
             />
             <TouchableOpacity onPress={this.sendMessage}>

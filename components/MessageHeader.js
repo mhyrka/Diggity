@@ -31,13 +31,15 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 24,
-    alignSelf: "center"
+    alignSelf: "center",
+    marginTop: 10
   },
   button: {
     width: 50,
     height: 50,
     position: "absolute",
     left: 0,
+    marginTop: 5,
 
     top: 15,
     bottom: 15,
