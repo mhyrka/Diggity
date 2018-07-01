@@ -14,7 +14,6 @@ export default class FooterNav extends Component {
   }
 
   render() {
-    const MapView = MapView
     return (
       <Container style={styles.bottomView}>
         <Footer>
@@ -25,7 +24,7 @@ export default class FooterNav extends Component {
             <Button active={this.state.activeButton === "chat"} onPress={() => this.toggleActiveButton("chat")}>
               <Icon name="ios-chatboxes" />
             </Button>
-            <Button active={this.props.activeButton === "map"} onPress={Actions.MapView}>
+            <Button active={this.props.activeButton === "map"} onPress={Actions.Map}>
               <Icon active name="md-globe" />
             </Button>
             <Button

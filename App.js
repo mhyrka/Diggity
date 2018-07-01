@@ -15,7 +15,7 @@ import React from "react"
 // import SocketIOClient from "socket.io-client"
 import ProfileCards from "./components/ProfileCards"
 import SendMessage from "./components/SendMessage"
-import MapView from "./components/MapView"
+import Map from "./components/Map"
 
 import { Router, Scene } from "react-native-router-flux"
 
@@ -30,7 +30,7 @@ export default class App extends React.Component {
         <Scene key={"root"}>
           <Scene key={"ProfileCards"} component={ProfileCards} initial={true} hideNavBar={true} />
           <Scene key={"SendMessage"} component={SendMessage} title={"Send Message"} hideNavBar={true} />
-          <Scene key={"MapView"} component={MapView} title={"Map View"} hideNavBar={true} />
+          <Scene key={"Map"} component={Map} title={"Map View"} hideNavBar={true} />
         </Scene>
       </Router>
     )
