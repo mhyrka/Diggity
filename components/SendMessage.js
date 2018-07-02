@@ -126,5 +126,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     padding: 20
+  },
+  messageBubble: {
+    borderRadius: 5,
+    marginTop: 8,
+    marginRight: 10,
+    marginLeft: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    flexDirection: "row",
+    flex: 1
   }
 })
