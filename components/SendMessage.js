@@ -15,13 +15,14 @@ import { send, subscribe } from "react-native-training-chat-server"
 import MessageHeader from "./MessageHeader"
 
 const NAME = "Matt H"
-const CHANNEL = "9018717641"
+// const CHANNEL = "9018717641"
 const AVATAR = ""
 
 export default class SendMessage extends React.Component {
   state = {
     myMessage: "",
-    activeUser: "John Quincy Adams (the dog)"
+    activeUser: "John Quincy Adams (the dog)",
+    CHANNEL: this.props.profileId
   }
 
   componentDidMount() {
@@ -29,7 +30,7 @@ export default class SendMessage extends React.Component {
   }
 
   componentWillMount() {
-    subscribe(CHANNEL, messages => {
+    subscribe(this.state.CHANNEL, messages => {
       this.setState({ messages })
     })
   }
@@ -41,9 +42,9 @@ export default class SendMessage extends React.Component {
       user: this.state.activeUser,
       message: this.state.myMessage
     }
-    // send message to our channel, with sender name
+
     await send({
-      channel: CHANNEL,
+      channel: this.state.CHANNEL,
       sender: NAME,
       avatar: AVATAR,
       message
@@ -69,7 +70,7 @@ export default class SendMessage extends React.Component {
       <View style={styles.row}>
         <Image style={styles.avatar} source={{ uri: item.avatar }} />
         <View style={styles.rowText}>
-          {/* <Text style={styles.sender}>{item.sender}</Text> */}
+          <Text style={styles.sender}>{item.sender}</Text>
           <Text style={styles.message}>{item.message}</Text>
         </View>
       </View>

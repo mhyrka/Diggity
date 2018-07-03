@@ -26,7 +26,7 @@ export default class MyMessages extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://diggity-backend.herokuapp.com/profiles/5b3a955b4c9ecc00149b41c8")
+    fetch("https://diggity-backend.herokuapp.com/profiles/5b3bce57e6eed00014b0af4d")
       .then(response => response.json())
       .then(response => this.setState({ messages: this.state.messages.concat(response.messages) }))
   }
@@ -52,7 +52,7 @@ export default class MyMessages extends React.Component {
                       <Thumbnail
                         source={{
                           uri:
-                            "https://s3.us-east-2.amazonaws.com/diggity-image-hosting/adorable-animal-bull-160846.jpg"
+                            "https://s3.us-east-2.amazonaws.com/diggity-image-hosting/animal-dog-golden-retriever-9080.jpg"
                         }}
                       />
                     </Left>

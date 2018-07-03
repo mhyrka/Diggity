@@ -29,7 +29,7 @@ export default class StackedLabelExample extends Component {
                 </Item>
                 <Item stackedLabel style={{ right: 7 }}>
                   <Label>Password</Label>
-                  <Input />
+                  <Input secureTextEntry={true} />
                 </Item>
               </Form>
               <Button block light style={{ top: 40 }} onPress={Actions.ProfileCards}>

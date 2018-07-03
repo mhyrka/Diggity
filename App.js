@@ -1,17 +1,5 @@
 import React from "react"
-// import {
-//   Alert,
-//   AppRegistry,
-//   Button,
-//   StyleSheet,
-//   View,
-//   ScrollView,
-//   Content,
-//   AsyncStorage,
-//   KeyboardAvoidingView
-// } from "react-native"
 
-// this
 // import SocketIOClient from "socket.io-client"
 // import Expo from "expo"
 import SplashScreen from "./components/SplashScreen"

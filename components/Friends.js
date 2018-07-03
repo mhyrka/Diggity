@@ -12,33 +12,58 @@ import {
 } from "react-native"
 import { Icon } from "react-native-vector-icons"
 import { send, subscribe } from "react-native-training-chat-server"
+import { ListItem, Left, Thumbnail, Body, Right, Container, Content, List } from "native-base"
 import MessageHeader from "./MessageHeader"
 import FooterNav from "./FooterNav"
 
 export default class Friends extends React.Component {
   state = {
-    messages: [],
+    friends: [],
     activeButton: "md-people"
   }
+
+  componentDidMount() {
+    fetch("https://diggity-backend.herokuapp.com/profiles/5b3bce57e6eed00014b0af4d")
+      .then(response => response.json())
+      .then(response => this.setState({ friends: this.state.friends.concat(response.friends) }))
+  }
+
+  removeDuplicates = (myArr, prop) => {
+    return myArr.filter((obj, pos, arr) => {
+      return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <MessageHeader title={"My Friends"} />
-        {/* <FlatList data={this.state.messages} renderItem={this.renderItem} inverted /> */}
-        {/* <KeyboardAvoidingView behavior="padding">
-          <View style={styles.footer}>
-            <TextInput
-              value={this.state.typing}
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder="Let's Play!"
-              onChangeText={text => this.setState({ typing: text })}
-            />
-            <TouchableOpacity onPress={this.sendMessage}>
-              <Text style={styles.send}>Send</Text>
-            </TouchableOpacity>
-          </View>
-        </KeyboardAvoidingView> */}
+        {this.state.friends.length !== 0 ? (
+          <Container>
+            <Content>
+              <List>
+                {this.removeDuplicates(this.state.friends, "user").map(friend => (
+                  <ListItem avatar button enableEmptySections={false}>
+                    <Left>
+                      <Thumbnail
+                        source={{
+                          uri: `${friend.avatar}`
+                        }}
+                      />
+                    </Left>
+                    <Body>
+                      <Text>{friend.user}</Text>
+                      <Text note>Friends since 2018</Text>
+                    </Body>
+                    <Right>
+                      <Text note>3:43 pm</Text>
+                    </Right>
+                  </ListItem>
+                ))}
+              </List>
+            </Content>
+          </Container>
+        ) : null}
         <FooterNav activeButton={this.state.activeButton} />
       </View>
     )

@@ -18,6 +18,28 @@ import {
 import SendMessage from "./SendMessage"
 
 export default class Profile extends Component {
+  state = {
+    friendAdded: false,
+    user: "",
+    avatar: ""
+  }
+
+  addFriend = () => {
+    // console.log("add friend")
+
+    this.setState({ friendAdded: true, user: this.props.name, avatar: this.props.image }, () => {
+      fetch(`https://diggity-backend.herokuapp.com/profiles/5b3bce57e6eed00014b0af4d/addfriend`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({ user: this.state.user, avatar: this.state.avatar })
+      })
+        .then(response => response.json())
+        .then(response => console.log(response))
+    })
+  }
+
   render() {
     return (
       <Content
@@ -41,8 +63,8 @@ export default class Profile extends Component {
           </CardItem>
           <CardItem>
             <Left>
-              <Button transparent>
-                <Icon active name="heart" />
+              <Button transparent onPress={this.addFriend}>
+                <Icon active name="heart" style={this.state.friendAdded ? { color: "pink" } : { color: "blue" }} />
                 <Text style={{ fontSize: 18 }}>Add Friend</Text>
               </Button>
             </Left>
