@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     verticalAlign: "center"
   },
   backIcon: {
-    color: "black",
+    color: "white",
     fontSize: 34
   }
 })

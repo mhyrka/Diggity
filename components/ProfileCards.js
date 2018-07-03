@@ -38,6 +38,7 @@ export default class ProfileCards extends Component {
                 key={index}
                 index={index}
                 profilesLength={this.state.profiles.length}
+                profileId={profile._id}
               />
             )
           })}

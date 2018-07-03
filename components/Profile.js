@@ -15,6 +15,7 @@ import {
   Body,
   Right
 } from "native-base"
+import SendMessage from "./SendMessage"
 
 export default class Profile extends Component {
   render() {
@@ -46,7 +47,11 @@ export default class Profile extends Component {
               </Button>
             </Left>
             <Body>
-              <Button transparent style={{ paddingLeft: 15 }} onPress={Actions.SendMessage}>
+              <Button
+                transparent
+                style={{ paddingLeft: 15 }}
+                onPress={() => Actions.SendMessage({ profileId: this.props.profileId })}
+              >
                 <Icon active name="chatbubbles" />
                 <Text style={{ fontSize: 18, paddingRight: 0 }}>Let's Play!</Text>
               </Button>

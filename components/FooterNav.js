@@ -21,16 +21,13 @@ export default class FooterNav extends Component {
             <Button active={this.props.activeButton === "home"} onPress={Actions.ProfileCards}>
               <Icon name="home" />
             </Button>
-            <Button active={this.state.activeButton === "chat"} onPress={() => this.toggleActiveButton("chat")}>
+            <Button active={this.props.activeButton === "chat"} onPress={Actions.MyMessages}>
               <Icon name="ios-chatboxes" />
             </Button>
             <Button active={this.props.activeButton === "map"} onPress={Actions.Map}>
               <Icon active name="md-globe" />
             </Button>
-            <Button
-              active={this.state.activeButton === "md-people"}
-              onPress={() => this.toggleActiveButton("md-people")}
-            >
+            <Button active={this.props.activeButton === "md-people"} onPress={Actions.Friends}>
               <Icon name="md-people" />
             </Button>
           </FooterTab>

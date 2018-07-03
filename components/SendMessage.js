@@ -20,8 +20,12 @@ const AVATAR = ""
 
 export default class SendMessage extends React.Component {
   state = {
-    typing: "",
-    messages: []
+    myMessage: "",
+    activeUser: "John Quincy Adams (the dog)"
+  }
+
+  componentDidMount() {
+    console.log(this.props.profileId)
   }
 
   componentWillMount() {
@@ -32,8 +36,11 @@ export default class SendMessage extends React.Component {
 
   sendMessage = async () => {
     // read message from component state
-    const message = this.state.typing
-
+    const message = this.state.myMessage
+    const putData = {
+      user: this.state.activeUser,
+      message: this.state.myMessage
+    }
     // send message to our channel, with sender name
     await send({
       channel: CHANNEL,
@@ -42,10 +49,19 @@ export default class SendMessage extends React.Component {
       message
     })
 
-    // set the component state (clears text input)
-    this.setState({
-      typing: ""
+    fetch(`https://diggity-backend.herokuapp.com/profiles/${this.props.profileId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(putData)
     })
+      .then(response => response.json())
+      .then(response =>
+        this.setState({
+          myMessage: ""
+        })
+      )
   }
 
   renderItem({ item }) {
@@ -53,7 +69,7 @@ export default class SendMessage extends React.Component {
       <View style={styles.row}>
         <Image style={styles.avatar} source={{ uri: item.avatar }} />
         <View style={styles.rowText}>
-          <Text style={styles.sender}>{item.sender}</Text>
+          {/* <Text style={styles.sender}>{item.sender}</Text> */}
           <Text style={styles.message}>{item.message}</Text>
         </View>
       </View>
@@ -68,11 +84,15 @@ export default class SendMessage extends React.Component {
         <KeyboardAvoidingView behavior="padding">
           <View style={styles.footer}>
             <TextInput
-              value={this.state.typing}
+              value={this.state.myMessage}
               style={styles.input}
               underlineColorAndroid="transparent"
               placeholder="Let's Play!"
-              onChangeText={text => this.setState({ typing: text })}
+              onChangeText={text =>
+                this.setState({ myMessage: text }, () => {
+                  console.log(this.state.myMessage)
+                })
+              }
             />
             <TouchableOpacity onPress={this.sendMessage}>
               <Text style={styles.send}>Send</Text>
