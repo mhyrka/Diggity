@@ -18,7 +18,7 @@ export default class SplashScreen extends Component {
   componentDidMount() {
     setTimeout(() => {
       Actions.Login()
-    }, 3000)
+    }, 1000)
   }
 
   render() {
