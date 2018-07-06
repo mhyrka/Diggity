@@ -8,4 +8,4 @@ which they use to connect with other users nearby.
 As a user you create a profile with an email and password. You can send a direct message to other nearby users or check out the map view to see who is around. You can also add friends to your network to
 stay connected with your favorites.
 
-(Here)[https://youtu.be/xXlfUxhcSGA] is a link to the demo video!
+[Here](https://youtu.be/xXlfUxhcSGA) is a link to the demo video!
