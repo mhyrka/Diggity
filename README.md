@@ -8,11 +8,6 @@ which they use to connect with other users nearby.
 To run - fork and clone this repo to your local machine. Make sure you either have Expo on your
 phone, or xcode / android studio on your computer. From the terminal, navigate to the directory, "Diggity" and run `npm i` to install all dependencies. Then run `npm start`.
 
-## **User Experience**
-
-As a user you create a profile with an email and password. You can send a direct message to other nearby users or check out the map view to see who is around. You can also add friends to your network to
-stay connected with your favorites.
-
 ## **Author**
 
 - Matthew Hyrka
