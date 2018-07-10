@@ -9,3 +9,5 @@ As a user you create a profile with an email and password. You can send a direct
 stay connected with your favorites.
 
 [Here](https://youtu.be/xXlfUxhcSGA) is a link to the demo video!
+
+![diggity home screen](https://s3.amazonaws.com/misc-image-hosting/diggityScreenShot.JPG)
