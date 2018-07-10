@@ -15,9 +15,9 @@ stay connected with your favorites.
 
 ## **Author**
 
-Matthew Hyrka
-mhyrka@gmail.com
-linkedin.com/in/mhyrka
+- Matthew Hyrka
+- mhyrka@gmail.com
+- linkedin.com/in/mhyrka
 
 ### **License**
 
