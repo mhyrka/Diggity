@@ -1,7 +1,4 @@
 import React from "react"
-
-// import SocketIOClient from "socket.io-client"
-// import Expo from "expo"
 import SplashScreen from "./components/SplashScreen"
 import ProfileCards from "./components/ProfileCards"
 import SendMessage from "./components/SendMessage"
@@ -9,9 +6,9 @@ import MyMessages from "./components/MyMessages"
 import Map from "./components/Map"
 import Friends from "./components/Friends"
 import Login from "./components/Login"
-// const io = require("socket.io-client")
-
 import { Router, Scene, Action } from "react-native-router-flux"
+// import SocketIOClient from "socket.io-client"
+// const io = require("socket.io-client")
 
 export default class App extends React.Component {
   state = {
